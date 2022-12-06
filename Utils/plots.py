@@ -14,7 +14,6 @@ def plot_living_area(area, agents_x, agents_y, img_loc, t):
     plt.xticks([])
     plt.yticks([])
     plt.title('Time step: '+str(t))
-    #plt.tight_layout()
     plt.savefig(img_loc + '/sugarscape_'+str(t)+'.png')
 
 
@@ -25,7 +24,6 @@ def scatter_agents(agents_x, agents_y, img_loc, t):
     plt.xticks([])
     plt.yticks([])
     plt.title('Time step: '+str(t))
-    #plt.tight_layout()
     plt.savefig(img_loc + '/living_area_'+str(t)+'.png')
 
 
