@@ -70,11 +70,11 @@ class Sugarscape:
         area = self.init_living_area()
         agents_dir = self.init_agents()
 
+        print('--- Starting simulation ---\n')
         agent_grid, agents_x, agents_y = self.get_current_positions(agents_dir)
         plot_living_area(area, agents_x, agents_y, 'graphics/img/sugarscape_all', self.t)
         scatter_agents(agents_x, agents_y, 'graphics/img/sugarscape_agents', self.t)
 
-        print('--- Generating images ---')
         for t in range(max_time):
             self.t += 1
             agents_grid, agents_x, agents_y = self.update_agents(area, agents_dir)
@@ -82,10 +82,14 @@ class Sugarscape:
             plot_living_area(area, agents_x, agents_y, 'graphics/img/sugarscape_all', self.t)
             scatter_agents(agents_x, agents_y, 'graphics/img/sugarscape_agents', self.t)
 
+            if (t+1) % 50 == 0:
+                print('--- Time step: '+str(t+1)+' ---')
+
+        print('\n--- Generating graphics ---')
         make_gif('graphics/img/sugarscape_all', 'sugarscape')
         make_gif('graphics/img/sugarscape_agents', 'scattered_agents')
 
-        print('--- Making GIF ---')
+
 
 
 

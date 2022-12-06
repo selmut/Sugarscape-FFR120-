@@ -6,25 +6,27 @@ import os
 
 # plots a given generation's grid matrix and saves the image
 def plot_living_area(area, agents_x, agents_y, img_loc, t):
-    plt.figure()
+    fig = plt.figure()
     plt.style.use('dark_background')
     # GnBu_r
-    plt.imshow(area, cmap='bone', alpha=1)
+    plt.imshow(area, cmap='copper', alpha=1)
     plt.scatter(agents_x, agents_y, c='mediumslateblue', s=30, alpha=1, edgecolors='darkslateblue', linewidths=0.1)
     plt.xticks([])
     plt.yticks([])
     plt.title('Time step: '+str(t))
     plt.savefig(img_loc + '/sugarscape_'+str(t)+'.png')
+    plt.close(fig)
 
 
 def scatter_agents(agents_x, agents_y, img_loc, t):
-    plt.figure()
+    fig = plt.figure()
     plt.style.use('dark_background')
     plt.scatter(agents_x, agents_y, c='mediumslateblue', s=30, alpha=1, edgecolors='darkslateblue', linewidths=0.1)
     plt.xticks([])
     plt.yticks([])
     plt.title('Time step: '+str(t))
     plt.savefig(img_loc + '/living_area_'+str(t)+'.png')
+    plt.close(fig)
 
 
 def make_gif(img_loc, name):
